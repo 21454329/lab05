@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All Bookings</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <%= booking.name %>,
+        <%= booking.numTicket %>,
+            <%=booking.email %>,
+                <%=booking.Team %>,
+                    <%=booking. Superhero %>,
+                        <%=booking.Message %>
+                            <%=booking.payment %>
+                                <form action="/bookings/delete/<%= booking.$loki%>" method="post">
+                                    <button type="submit"> Delete
+                                    </button>
+                                </form>
+</body>
+
+</html>
