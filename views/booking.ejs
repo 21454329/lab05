@@ -15,10 +15,35 @@
                     <%=booking. Superhero %>,
                         <%=booking.Message %>
                             <%=booking.payment %>
-                                <form action="/bookings/delete/<%= booking.$loki%>" method="post">
+                                <!--<form action="/bookings/delete/<%= booking.$loki%>" method="post">
                                     <button type="submit"> Delete
                                     </button>
-                                </form>
+                                </form>-->
+                                <button type="button" class="button is-danger" onclick="deleteBooking('<%= booking.$loki %>')">Delete</button>
+                                <script>
+                                    async function deleteBooking(id) {
+                                        var r = confirm("Confirm Delete?");
+
+                                        if (r) {
+                                            var response = await fetch("/bookings/delete/" + id, {
+                                                method: "POST"
+                                            });
+
+                                            if (response.ok) {
+                                                //var html = await response.text();
+                                                //alert(html);
+                                                alert("Booking deleted.");
+                                                location.assign("/bookings");
+                                            } else {
+                                                alert(response.status + ": " + response.statusText);
+                                            }
+
+                                        } else {
+                                            alert("cancelled");
+                                        }
+                                    };
+                                </script>
 </body>
+
 
 </html>
