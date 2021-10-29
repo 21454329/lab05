@@ -136,7 +136,9 @@ router.get('/bookings/search', function(req, res) {
 router.get('/bookings/paginate', function(req, res) {
 
     var count = Math.max(req.query.limit, 2) || 2;
+    //var count = Math.max(req.query.limit, params.limit) || params.limit;
     var start = Math.max(req.query.offset, 0) || 0;
+    //var start = Math.max(req.query.offset, params.offset) || params.offset;
 
     var results = db.getCollection("bookings").chain().find({}).offset(start).limit(count).data();
 

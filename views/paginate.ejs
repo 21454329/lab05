@@ -68,8 +68,11 @@
         var numOfRecords = parseInt("<%= numOfRecords %>");
 
         const urlParams = new URLSearchParams(window.location.search);
-        var limit = Math.max(parseInt(urlParams.limit), 2) || 2;
-        var offset = Math.max(parseInt(urlParams.offset), 0) || 0;
+        //var limit = Math.max(parseInt(urlParams.limit), 2) || 2;
+        var count = Math.max(req.query.limit, params.limit) || params.limit;
+        //var offset = Math.max(parseInt(urlParams.offset), 2) || 2;
+        var start = Math.max(req.query.offset, params.offset) || params.offset;
+
 
         function buildLinks() {
 
@@ -93,13 +96,16 @@
             if (offset < limit) {
                 previousButton.setAttribute("disabled", true);
                 previousButton.href = "";
-                previousLink.style.display = "none";
+                //previousLink.style.display = "none";
+                previousButton.style.display = "light";
             }
 
             if (offset + limit >= numOfRecords) {
                 nextButton.setAttribute("disabled", true);
                 nextButton.href = "";
                 nextLink.style.display = "none";
+                //nextButton.style.display = "light";
+
             }
         }
 
