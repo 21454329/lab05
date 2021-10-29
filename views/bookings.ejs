@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>All Bookings</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
     <table>
         <% bookings.forEach( function(booking) { %>
-        
+
             <tr>
-            	<td><%= booking.name %></td>
-            	<td><%= booking.numTickets %></td>
+                <td>
+                    <%= booking.name %>
+                </td>
+                <td>
+                    <%= booking.numTickets %>
+                </td>
             </tr>
-        
-        <% }); %>
-     </table>
-  </body>
-</html> 
+
+            <% }); %>
+    </table>
+</body>
+
+</html>
